@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Customer;
+use App\Http\Requests\CustomerRequest;
 
 class CustomerController extends Controller
 {
@@ -13,8 +14,7 @@ class CustomerController extends Controller
     	return view('customer',$customers);
     }
 
-    public function store(Request $request){
-
+    public function store(CustomerRequest $request){
     	$customer = new Customer;
     	$customer->name = $request->name;
     	$customer->phone_number = $request->phone_number;
